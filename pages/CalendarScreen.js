@@ -3,8 +3,8 @@ import { View, Text,StyleSheet  } from 'react-native';
 import { createStackNavigator} from '@react-navigation/stack';
 
 import Container from '../components/Container';
-import Calendar from '../components/Calendar'
-import Agenda from '../components/Agenda'
+import Calendar from '../components/Calendar';
+import Agenda from '../components/Agenda';
 
 const Stack = createStackNavigator();
 

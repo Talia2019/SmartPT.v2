@@ -1,10 +1,12 @@
-import React,{Component} from 'react';
+import React,{Component,useState} from 'react';
 import styled from 'styled-components';
-import { View, Text,StyleSheet,ScrollView  } from 'react-native';
+import { View,
+         Text,
+         StyleSheet,
+         ScrollView,
+} from 'react-native';
 import ExpandableView from './ExpandableView';
-import {Icon} from 'react-native-elements';
 import ModalContainer from './Modal';
-//import {Agenda} from 'react-native-calendars';
 const styles = StyleSheet.create({
     container:{
         flex:1,
@@ -15,6 +17,7 @@ const styles = StyleSheet.create({
         bottom: 10,
     },
 });
+
 function AgendaContainer({navigation,route}) {
     
     console.log(route);
@@ -28,13 +31,7 @@ function AgendaContainer({navigation,route}) {
                 <ExpandableView title="저녁"></ExpandableView>
                 <ExpandableView title="간식"></ExpandableView>
             </ScrollView>
-            <Icon
-                containerStyle={styles.floatIcon}
-                raised
-                name='plus'
-                type='font-awesome'
-                color='#f50'
-                onPress={() => console.log('hello')}/>
+            <ModalContainer></ModalContainer>
         </View>
     );
     

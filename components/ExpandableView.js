@@ -35,7 +35,6 @@ function ExpandableView(props) {
   const [expand,setExpand] = useState({
     display:'none',
     Icon :'arrow-down',
-
   });
 
 
