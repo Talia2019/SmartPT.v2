@@ -36,8 +36,6 @@ function ExpandableView(props) {
     display:'none',
     Icon :'arrow-down',
   });
-
-
   const changeView = () =>{
     if(expand.display=='none'){
       setExpand({

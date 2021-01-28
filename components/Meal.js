@@ -21,8 +21,14 @@ const styles = StyleSheet.create({
     foodTime:{
         marginBottom:10,
     },
-    nutrient:{
+    nutrients:{
+        width:170,
         flexDirection:'row',
+        justifyContent:'space-between'
+    },
+    nutrient:{
+        alignItems:'center',
+        backgroundColor:'pink',
     },
     image : {
         borderRadius : 5,
@@ -41,10 +47,19 @@ function MealContainer({navigation,route}) {
                 <Text style={styles.foodName}>음식 이름</Text>
                 <Text style={styles.foodTime}>먹은 시간</Text>
                 <Text>칼로리(10.5g)</Text>
-                <View style={styles.nutrient}>
-                    <Text>탄(10.5g) </Text>
-                    <Text>단(10.5g) </Text>
-                    <Text>지(10.5g)</Text>
+                <View style={styles.nutrients}>
+                    <View style={styles.nutrient}>
+                        <Text>탄수화물</Text>
+                        <Text>10.5g </Text>
+                    </View>
+                    <View style={styles.nutrient}>
+                        <Text>단백질</Text>
+                        <Text>10.5g </Text>
+                    </View>
+                    <View style={styles.nutrient}>
+                        <Text>지방</Text>
+                        <Text>10.2g </Text>
+                    </View>
                 </View>
             </View>
         </Container>

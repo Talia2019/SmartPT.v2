@@ -12,11 +12,10 @@ import {
   Text,
   Input,
   ButtonGroup,
+  Button
 } from 'react-native-elements';
 
-// import {
-//   DateTimePicker 
-// } from '@react-native-community/datetimepicker';
+//import DateTimePicker from '@react-native-community/datetimepicker';
 
 import styled from 'styled-components';
 import CameraContainer from './Camera';
@@ -33,6 +32,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   modalView: {
+    width:"95%",
+    alignItems: "center",
     margin: 20,
     backgroundColor: "pink",
     borderRadius: 20,
@@ -69,10 +70,18 @@ const styles = StyleSheet.create({
     height:250,
     marginBottom:'2%',
   },
+  labelstyle:{
+    fontSize:15,
+  },
+  inputstyle:{
+    fontSize:10
+  },
   input:{
     backgroundColor:'white',
+    
     width:300,
-    marginLeft:0,
+    height:70,
+    marginBottom:0,
   },
   buttonGroup:{
     width:300,
@@ -82,9 +91,29 @@ const styles = StyleSheet.create({
 
 const ModalContainer = () => {
   const amountButtons = ['1/2인분', '1인분', '2인분'] ;
+  const TimeButtons=['아침','점심','저녁','간식'];
+  // const [date, setDate] = useState(new Date());
+  // const [mode, setMode] = useState('time');
+  // const [show, setShow] = useState(false);
 
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedAmount,setSelectedAmount] = useState(0);
+  const [selectedTime,setSelectedTime] = useState(0);
+  // const onChange = (event, selectedDate) => {
+  //   const currentDate = selectedDate || date;
+  //   setShow(Platform.OS === 'ios');
+  //   setDate(currentDate);
+  //   console.log(date);
+  // };
+
+  // const showMode = (currentMode) => {
+  //   setShow(true);
+  //   setMode(currentMode);
+  // };
+
+  // const showTimepicker = () => {
+  //   showMode('time');
+  // };
 
   return (
     <View style={styles.centeredView}>
@@ -98,31 +127,58 @@ const ModalContainer = () => {
       >
         <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <View style={styles.imageView}>
+              <TouchableHighlight 
+                style={styles.imageView}
+                onPress={()=>{console.log("^^")}}>
                 <Image
                     style={styles.image}
                     source={require('../images/dog.jpg')}/>
-              </View>
+              </TouchableHighlight>
               <Input
                 label="음식 이름"
                 placeholder='음식 이름을 입력하세요'
+                labelStyle={styles.labelstyle}
+                inputStyle={styles.inputstyle}
                 containerStyle={styles.input}
               />
-              
-      
+              <ButtonGroup
+                buttons={TimeButtons}
+                selectedIndex={selectedTime}
+                onPress={selectedTime=> setSelectedTime(selectedTime)}
+                containerStyle={styles.buttonGroup}
+              />
               <ButtonGroup
                 buttons={amountButtons}
                 selectedIndex={selectedAmount}
                 onPress={selectedAmount=> setSelectedAmount(selectedAmount)}
                 containerStyle={styles.buttonGroup}
               />
+              {/* <Input
+                label="칼로리"
+                placeholder='음식 이름을 입력하세요'
+                containerStyle={styles.input}
+              />
+              <Input
+                label="탄수화물"
+                placeholder='음식 이름을 입력하세요'
+                containerStyle={styles.input}
+              />
+              <Input
+                label="단백질"
+                placeholder='음식 이름을 입력하세요'
+                containerStyle={styles.input}
+              />
+              <Input
+                label="지방"
+                placeholder='음식 이름을 입력하세요'
+                containerStyle={styles.input}
+              /> */}
               
               <TouchableHighlight
-                    style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
                     onPress={() => {
                         setModalVisible(!modalVisible);
                     }}>
-                <Text style={styles.textStyle}>Hide Modal</Text>
+                <Text style={styles.textStyle}>닫기</Text>
               </TouchableHighlight>
             </View>
         </View>

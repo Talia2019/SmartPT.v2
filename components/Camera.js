@@ -33,7 +33,7 @@ export default function CameraContainer() {
       const { status } = await Camera.requestPermissionsAsync();
       setHasPermission(status === 'granted');
     })();
-  }, []);
+  }, []); // 주시대상 없음
 
   if (hasPermission === null) {
     return <View />;
