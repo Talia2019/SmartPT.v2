@@ -1,7 +1,7 @@
 import React,{useState}from 'react';
 import { View, Text,StyleSheet  } from 'react-native';
-import PieChartContainer from '../PieChart';
-import LineChartContainer from '../LineChart';
+import PieChartContainer from '../Charts/PieChart';
+import LineChartContainer from '../Charts/LineChart';
 import styled from 'styled-components';
 
 function DayChart( props ){  
